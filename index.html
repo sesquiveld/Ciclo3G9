@@ -1,0 +1,71 @@
+<!DocType html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+    <title> Reto2 G9! </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="JavaScript/MisFunciones.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+</head>
+<body>
+    <center>    
+    <h1>RENTA CAR!</h1>
+    </center>
+       <!--                                     AUTOS                -->
+    <div id="Autos">
+        <h5>Adicionar /Actualizar Auto</h5>
+        <div id="postCar">   
+            <input type="number" id="id" placeholder="id"> 
+            <input type="text" id="brand" placeholder="brand">
+            <input type="number" id="model" placeholder="model">
+            <input type="number" id="category_id" placeholder="category_id">
+        </div>
+        <br>
+        <button class="btn btn-primary" id="guardarAuto" onclick="guardarInformacion()">Guardar</button>
+        <button class="btn btn-primary" id="editarAuto" onclick="editarInformacion()">Actualizar</button>
+        <br>
+        <h5>Consultar Auto</h5>
+        <button class="btn btn-primary" id="consultarAuto" onclick="traerInformacion()"> Consultar </button>
+        <div id="resultado"></div>
+    </div>
+    <!--                                     CLIENT                    -->
+    <div id="client">
+        <br>
+        <h5>Adicionar / Actualizar Cliente</h5>
+        <div id="postClient">
+            <input type="number" id="id_client" placeholder="id">
+            <input type="text" id="name" placeholder="name">
+            <input type="text" id="email" placeholder="email">
+            <input type="number" id="age" placeholder="age">
+        </div>
+        <br>
+        <button class="btn btn-primary" id="guardarCliente" onclick="guardarClient()">Guardar Cliente</button>
+        <button class="btn btn-primary" id="editarCliente" onclick="editarClient()">Actualizar Cliente</button>
+        <br>
+        <p></p>
+        <h5>Consultar Cliente</h5>
+        <button class="btn btn-primary" id="consultarCliente" onclick="infoClient()"> Consultar Cliente </button>
+        <div id="resultadoC"></div>
+    </div>
+    <!--                                     MESSAGE -->
+    <div id="message">
+        <br>
+        <h5>Adicionar / Actualizar Mensaje</h5>
+        <div id="postmsg">
+            <input type="number" id="id_message" placeholder="id">
+            <input type="text" id="messagetext" placeholder="messagetext">
+
+        </div>
+        <br>
+        <button class="btn btn-primary" id="guardarmensaje" onclick="guardarMsg()">Guardar Mensaje</button>
+        <button class="btn btn-primary" id="editarmensaje" onclick="editarMsg()">Actualizar Mensaje</button>
+        <br>
+        <p></p>
+        <h5>Consultar Mensaje</h5>
+        <button class="btn btn-primary" id="consultarMensaje" onclick="infoMsg()"> Consultar Mensaje </button>
+        <div  id="resultadoM"></div>
+    </div>
+
+</body>
+</html>

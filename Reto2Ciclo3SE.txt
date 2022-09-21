@@ -1,0 +1,135 @@
+//Reto 2 - BY Sandra Esquivel
+
+
+//****************************************************CAR****************************************
+CREATE TABLE car(
+    ID NUMBER(10) NOT NULL,
+    BRAND VARCHAR(20) NULL,
+    MODEL NUMBER(10) NULL,
+    CATEGORY_ID NUMBER(10) NULL,
+    PRIMARY KEY (ID)
+);
+-- Generate ID using sequence and trigger
+CREATE SEQUENCE car_seq START WITH 1 INCREMENT BY 1;
+CREATE OR REPLACE TRIGGER car_seq_tr
+BEFORE INSERT ON car FOR EACH ROW 
+WHEN (NEW.ID IS NULL)
+BEGIN
+    SELECT car_seq.NEXTVAL INTO :NEW.ID FROM DUAL;
+END;   
+
+GET
+SELECT*FROM car
+
+POST
+BEGIN
+    INSERT INTO car(ID,BRAND,MODEL,CATEGORY_ID) VALUES 
+    (:id,:brand,:model,:category_id);
+    :status_code:=201;
+END;    
+
+PUT
+BEGIN
+    UPDATE CAR SET BRAND=:brand,MODEL=:model,
+    CATEGORY_ID=:category_id WHERE ID=:id;
+    :status_code:=201;
+END;
+
+DELETE
+BEGIN
+    DELETE FROM CAR WHERE ID=:id;
+    :status_code:=204;
+END;    
+
+PLANTILA car/:id
+PUT
+SELECT*FROM car WHERE ID=:id
+
+URL en Mastertech
+https://gae0dae096e55c3-aahdwrbjzjbtrmbd.adb.us-ashburn-1.oraclecloudapps.com
+URL APEX
+https://gae0dae096e55c3-aahdwrbjzjbtrmbd.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/car/car
+
+//****************************************************CLIENT****************************************
+//Nota: Recordar que la longitud del campo de EMAIL es de solo 20 caracteres
+TABLA CLIENTE 
+CREATE TABLE client(
+    ID NUMBER(10) NOT NULL,
+    NAME VARCHAR(4000) NULL,
+    EMAIL VARCHAR2(20) NULL,
+    AGE NUMBER(10) NULL,
+    PRIMARY KEY (ID)
+);
+
+
+GET
+SELECT*FROM CLIENT
+
+POST
+BEGIN
+    INSERT INTO CLIENT(ID,NAME,EMAIL,AGE) VALUES 
+    (:id,:name,:email,:age);
+    :status_code:=201;
+END;    
+
+PUT
+BEGIN
+    UPDATE CLIENT SET NAME=:name,EMAIL=:email,
+    AGE=:age WHERE ID=:id;
+    :status_code:=201;
+END;
+
+DELETE
+BEGIN
+    DELETE FROM CLIENT WHERE ID=:id;
+    :status_code:=204;
+END;    
+
+PLANTILA client/:id
+PUT
+SELECT*FROM CLIENT WHERE ID=:id
+
+URL en Mastertech
+https://gae0dae096e55c3-aahdwrbjzjbtrmbd.adb.us-ashburn-1.oraclecloudapps.com
+URL APEX
+https://gae0dae096e55c3-aahdwrbjzjbtrmbd.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/client/client
+
+
+//****************************************************MESSAGE****************************************
+TABLA MESSAGE
+CREATE TABLE message(
+   ID NUMBER(10) NOT NULL,
+   MESSAGETEXT VARCHAR2(4000) NULL,
+   PRIMARY KEY (ID)
+); 
+
+GET
+SELECT*FROM MESSAGE
+
+POST
+BEGIN
+    INSERT INTO MESSAGE(ID,MESSAGETEXT) VALUES 
+    (:id,:messagetext);
+    :status_code:=201;
+END;    
+
+PUT
+BEGIN
+    UPDATE MESSAGE SET MESSAGETEXT=:messagetext WHERE ID=:id;
+    :status_code:=201;
+END;
+
+DELETE
+BEGIN
+    DELETE FROM MESSAGE WHERE ID=:id;
+    :status_code:=204;
+END;    
+
+PLANTILA message/:id
+PUT
+SELECT*FROM MESSAGE WHERE ID=:id
+
+
+https://gae0dae096e55c3-aahdwrbjzjbtrmbd.adb.us-ashburn-1.oraclecloudapps.com/
+URL APEX
+https://gae0dae096e55c3-aahdwrbjzjbtrmbd.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/message/message
